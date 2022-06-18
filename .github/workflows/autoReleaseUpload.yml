@@ -21,12 +21,12 @@ jobs:
     - name: Build mod jar
       run: ./gradlew deploy
 
-      mv "build/libs/${{ github.event.repository.name }}.jar" "build/libs/${{ github.event.repository.name }}-${{ github.ref }}.jar"
+      mv "build/libs/${{ github.event.repository.name }}.jar" "build/libs/${{ github.event.repository.name }}${{ github.ref }}.jar"
 
     - name: Upload artifacts
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.TOKEN }}
-        file: build/libs/${{ github.event.repository.name }}-${{ github.ref }}.jar
+        file: build/libs/${{ github.event.repository.name }}${{ github.ref }}.jar
         tag: ${{ github.ref }}
 
