@@ -1,4 +1,4 @@
-name: releaseUpload
+name: autoReleaseUpload
 
 on:
   push:
